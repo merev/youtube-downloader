@@ -1,15 +1,6 @@
 import os
-import re
+from main import clean_title
 from pytube import YouTube  # Execute the following command to install the library: pip install pytube
-
-
-# Function to clean the title by removing problematic characters
-def clean_title(title):
-    # Define a regular expression pattern to match problematic characters
-    pattern = r'[\/:*?"<>|]'
-    # Replace problematic characters with underscores
-    cleaned_title = re.sub(pattern, '_', title)
-    return cleaned_title
 
 
 while True:

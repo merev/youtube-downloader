@@ -1,6 +1,8 @@
 import os
+from main import clean_title
 from pytube import YouTube  # Execute the following command to install the library: pip install pytube
 from pytube import Playlist
+
 
 while True:
 
@@ -23,7 +25,7 @@ while True:
         for video_url in playlist.video_urls:
             yt = YouTube(video_url)
             audio_stream = yt.streams.filter(only_audio=True).first()
-            title = yt.title
+            title = clean_title(yt.title)
             audio_file_name = f"{counter}) {title}.mp3"
             audio_file_path = os.path.join(download_path, audio_file_name)
             print(f"Downloading audio from {title}...")

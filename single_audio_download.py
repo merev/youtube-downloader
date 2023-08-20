@@ -1,5 +1,7 @@
 import os
+from main import clean_title
 from pytube import YouTube  # Execute the following command to install the library: pip install pytube
+
 
 while True:
 
@@ -20,7 +22,7 @@ while True:
         os.makedirs(download_path, exist_ok=True)
 
         # Download the video
-        title = yt.title
+        title = clean_title(yt.title)
         audio_file_name = f"{title}.mp3"
         audio_file_path = os.path.join(download_path, audio_file_name)
         print(f"Downloading audio from {title}...")
@@ -29,3 +31,4 @@ while True:
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
+        
